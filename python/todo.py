@@ -30,13 +30,16 @@ class todo_list: #List of Todos
         '''Removes item with id from todo list'''
         pass
 
-    def empty():
+    def empty(self):
         '''Empties the todo list'''
-        pass
+        while len(self.todos.queue) != 0:
+            self.todos.get()
+        print("Queue has been emptied!")
 
     def change_priority(from_id: int, to_id: int):
         '''Changes priority of item with id to another id'''
         pass
+
 
     def list(self):
         '''Lists all items in todo list'''
@@ -54,31 +57,51 @@ def info_print():
     return _version, _today
 
 def init_gui():
-    window = Tk() #Creates Window
-    _version, _today = info_print()
-    _ver = Label(text= _version)
-    _tod = Label(text = _today)
+    #Creates Window
+    window = Tk() 
 
-    _ver.pack()
-    _tod.pack()
+    #GUI Frames
+    frm_info = Frame(master=window, relief=SUNKEN)
+    frm_input = Frame(master=window)
+
+    #General Info
+    _version, _today = info_print()
+    Label(master=frm_info, text= _version).pack()
+    Label(master=frm_info, text = _today).pack()
+
+    #Task Info
+    Label(master=frm_input, text= "Input task name: ").pack()
+
+    ent_name = Entry(master=frm_input)
+    ent_name.pack()
+
+    Label(master=frm_input, text= "Input task description: ").pack()
+
+    txt_description = Text(master=frm_input)
+    txt_description.pack()
+
+    task_description = txt_description.get("1.0", END)
+
+    #deadline = input('Input deadline in the format (Year,Month,Day): ')
+    #Use tkCalender for this ^
+
+    frm_info.pack()
+    frm_input.pack()
+
     window.mainloop()
+
 
 
 
 def main():
     init_gui()
 
-    print("Input Information related to Task:")
-    name = input('Input task name: ')
-    description = input('Input task description: ')
-    deadline = input('Input deadline in the format (Year,Month,Day): ')
-
-    item = todo(name, description, deadline)
-    print(item)
-    todos = todo_list('List', 'Work')
+    #item = todo(name, description, deadline)
+    #print(item)
+    #todos = todo_list('List', 'Work')
     
-    todos.add_item(item)
-    todos.list()
+    #todos.add_item(item)
+    #todos.list()
     
 
 if __name__ == "__main__":
