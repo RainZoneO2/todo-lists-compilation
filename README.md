@@ -24,6 +24,7 @@ This is a repository to practice my programming skills in different languages by
 ### Current Features
  - Add todo item (Name, Description, Deadline)
  - Add todo list (Name, Description)
+ - Rudimentary GUI (Python)
 
 ### Future Features
  - Modifying todo list (Adding / Deleting / Changing Priority)
