@@ -22,33 +22,39 @@ class todo_list: #List of Todos
     todos = PriorityQueue()
 
     def add_item(self, item: todo):
-        '''Adds item into todo list'''
+        '''Adds item into todo list.'''
+
         self.todos.put((item.itemid, item))
 
 
     def remove_item(id: int):
-        '''Removes item with id from todo list'''
+        '''Removes item with id from todo list.'''
+
         pass
 
     def empty(self):
-        '''Empties the todo list'''
+        '''Empties the todo list.'''
+
         while len(self.todos.queue) != 0:
             self.todos.get()
         print("Queue has been emptied!")
 
     def change_priority(from_id: int, to_id: int):
-        '''Changes priority of item with id to another id'''
+        '''Changes priority of item with id to another id.'''
+
         pass
 
 
     def list(self):
-        '''Lists all items in todo list'''
+        '''Lists all items in todo list.'''
+
         for item in self.todos.queue:
             print(item)
 
 
 def info_print():
-    '''Prints general info'''
+    '''Returns general info.'''
+
     _version = 'Python Todo List using Python: {}'.format(version)
     _today = 'Todays Date: {}'.format(date.today())
     #print(_version)
@@ -57,6 +63,8 @@ def info_print():
     return _version, _today
 
 def init_gui():
+    '''GUI is initialized here.'''
+
     #Creates Window
     window = Tk() 
 
@@ -94,6 +102,8 @@ def init_gui():
 
 
 def main():
+    '''Where it all begins..'''
+
     init_gui()
 
     #item = todo(name, description, deadline)
