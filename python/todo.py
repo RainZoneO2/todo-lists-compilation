@@ -4,6 +4,9 @@ from itertools import count
 from sys import version
 from queue import PriorityQueue
 
+from tkinter import *
+from tkinter.ttk import *
+
 
 @dataclass
 class todo: #Individual Todo Item
@@ -43,11 +46,27 @@ class todo_list: #List of Todos
 
 def info_print():
     '''Prints general info'''
-    print('Python Todo List using Python: {}'.format(version))
-    print('Todays Date: {}'.format(date.today()))
+    _version = 'Python Todo List using Python: {}'.format(version)
+    _today = 'Todays Date: {}'.format(date.today())
+    #print(_version)
+    #print(_today)
+
+    return _version, _today
+
+def init_gui():
+    window = Tk() #Creates Window
+    _version, _today = info_print()
+    _ver = Label(text= _version)
+    _tod = Label(text = _today)
+
+    _ver.pack()
+    _tod.pack()
+    window.mainloop()
+
+
 
 def main():
-    info_print()
+    init_gui()
 
     print("Input Information related to Task:")
     name = input('Input task name: ')
